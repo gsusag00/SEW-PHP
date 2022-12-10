@@ -62,7 +62,7 @@ input[type="text"] {
 /*
     Especifidad: 0 1 1
 */
-input[type="button"] {
+input[type="submit"] {
     padding: 0.5em;
     margin: 0.07em;
     background-color: white;
@@ -71,7 +71,7 @@ input[type="button"] {
 /*
     Especifidad: 0 2 1
 */
-input[type="button"][value="+"] {
+input[type="submit"][value="+"] {
     grid-column: 4;
     grid-row: 6/ span 2;
 }

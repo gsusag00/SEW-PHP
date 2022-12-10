@@ -5,17 +5,14 @@ session_start();
 class CalculadoraMilan {
     protected $scr;
     protected $mem;
-    protected $point;
-    protected $left;
-    protected $right;
     protected $op;
+    protected $lastnum;
 
     public function __construct() {
-        this->scr = 0;
-        this->left = 0;
-        this->right = 0;
-        this->point = false;
-        this->memory = 0;
+        $this->scr="";
+        $this->mem="";
+        $this->op="";
+        $this->lastnum="";
     }
 
     public function getScreen() {
@@ -23,32 +20,43 @@ class CalculadoraMilan {
     }
 
     public function numeros($val) {
-        if(this->op)
-        $this->screen = $this->screen .$dig;
+        $this->scr .= $val;
+        $this->updateScreen();
+    }
+
+    public function updateScreen() {
+        echo "Valor de pantalla" . $this->scr;
     }
 
     public function suma() {
-        this->operation('+')
+        $this->operation('+');
     }
 
     public function resta() {
-        this->operation('-')
+        $this->operation('-');
     }
 
     public function mult() {
-        this->operation('*')
+        $this->operation('*');
     }
 
     public function division() {
-        this->operation('/');
+        $this->operation('/');
     }
 
     public function operation($val) {
-        this->op = $val;
+        if(!empty($this->op)) {
+            $this->scr = substr_replace($this->scr,"",-1);
+        }
+        $this->op = $val;
+        $this->scr .= $this->op;
+        $this->updateScreen();
     }
 
     public function cpress() {
-
+        $this->scr = "";
+        $this->op = "";
+        $this->lastnum = "";
     }
 
     public function cepress() {
@@ -80,11 +88,22 @@ class CalculadoraMilan {
     }
 
     public function igual() {
-
+        try {
+            $res=eval("return $this->scr ;"); 
+            $this->scr = $res;
+        }
+        catch (Error $e) {
+            $this->scr = "Syntax Error";
+        }  
+        catch(Execepcion $e){
+            $this->scr = "Syntax Error";
+        }
+        $this->updateScreen();
     }
 
     public function punto() {
-
+        $this->scr .= ".";
+        $this->updateScreen();
     }
 }
 
@@ -117,7 +136,7 @@ if(count($_POST) > 0) {
     if(isset($_POST['+'])) $calc->suma();
     if(isset($_POST['M-'])) $calc->m_minus();
     if(isset($_POST['0'])) $calc->numeros(0);
-    if(isset($_POST['.'])) $calc->punto();
+    if(isset($_POST['punto'])) $calc->punto();
     if(isset($_POST['='])) $calc->igual();
     if(isset($_POST['M+'])) $calc->m_plus();
     
@@ -139,7 +158,6 @@ echo"
     <title>Ejercicio 3</title>
     <!-- añadir el elemento link de enlace a laa hoja de estilo dentro del <head> del documento html -->
     <link rel='stylesheet' type='text/css' href='CalculadoraMilan.css'>
-    <script src='CalculadoraMilan.js'></script>
 </head>
 
 <body>
@@ -174,7 +192,7 @@ echo"
             <input type='submit' value='M-' name='M-'> 
             
             <input type='submit' value='0' name='0'> 
-            <input type='submit' value='.' name='.'> 
+            <input type='submit' value='.' name='punto'> 
             <input type='submit' value='=' name='='> 
             <input type='submit' value='M+' name='M+'> 
         </form>
@@ -182,4 +200,4 @@ echo"
 </body>
 
 </html>";
->
+?>
