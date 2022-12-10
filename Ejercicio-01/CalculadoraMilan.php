@@ -54,17 +54,39 @@ class CalculadoraMilan {
     }
 
     public function cpress() {
+        $this->cepress();
+        $this->mem = "";
+    }
+
+    public function cepress() {
         $this->scr = "";
         $this->op = "";
         $this->lastnum = "";
     }
 
-    public function cepress() {
-
-    }
-
     public function changeSign() {
-
+        if(!empty($this->op)) {
+            $exp = explode($this->op, $this->scr);
+            print_r($exp);
+            if(count($exp) == 3) {
+                $this->scr = $exp[0] . $this->op . ltrim($exp[2],"-");
+            }
+            if(!empty($exp[1])) {
+                if(str_contains($exp[1],'-')) {
+                    $this->scr = $exp[0] . $this->op . ltrim($exp[1],'-');
+                } else {
+                    $this->scr = $exp[0] . $this->op . '-' . $exp[1];
+                }
+            }
+        }
+        else {
+            if(str_contains($this->scr,'-')) {
+                $this->scr = ltrim($this->scr,"-");
+            } else {
+                $this->scr = "-".$this->scr;
+            }
+        }
+        $this->updateScreen();
     }
 
     public function sqrt() {
