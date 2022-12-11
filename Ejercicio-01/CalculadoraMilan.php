@@ -97,7 +97,12 @@ class CalculadoraMilan {
     }
 
     public function sqrt() {
-        if(!empty($this->op)) {
+        if(!empty($this->lastnum)) {
+            $this->scr = 'sqrt(' . $this->scr . ')';
+            $this->op = "";
+            $this->lastnum = "";
+        }
+        else if(!empty($this->op)) {
             $exp = explode($this->op, $this->scr);
             if(count($exp) == 3) {
                 //Si es un numero negativo y es una resta.
@@ -177,11 +182,13 @@ class CalculadoraMilan {
         if(!empty($this->lastnum)) {
             $this->scr .= $this->op .  $this->lastnum;
         } else {
-            $exp = explode($this->op, $this->scr);
-            if(count($exp) == 3) {
-                $this->lastnum = $exp[2];
-            } else {
-                $this->lastnum = $exp[1];
+            if(!empty($this->op)) {
+                $exp = explode($this->op, $this->scr);
+                if(count($exp) == 3) {
+                    $this->lastnum = $exp[2];
+                } else {
+                    $this->lastnum = $exp[1];
+                }
             }
         }
         try {
