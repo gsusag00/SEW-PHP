@@ -15,16 +15,17 @@ class CalculadoraMilan {
         $this->lastnum="";
     }
 
-    public function getScreen() {
-        return $this->scr;
-    }
-
     public function numeros($val) {
+        if(!empty($this->lastnum)) {
+            $this->lastnum = "";
+            $this->scr = "";
+            $this->op = "";
+        }
         $this->scr .= $val;
-        $this->updateScreen();
     }
 
-    public function updateScreen() {
+    protected function updateScreen() {
+        //Metodo para "debugear"
         echo "Valor de pantalla" . $this->scr;
     }
 
@@ -45,17 +46,25 @@ class CalculadoraMilan {
     }
 
     public function operation($val) {
+        if(!empty($this->lastnum)) {
+            $this->lastnum = "";
+            $this->op = "";
+        }
         if(!empty($this->op)) {
-            $this->scr = substr_replace($this->scr,"",-1);
+            $exp = explode($this->op,$this->scr);
+            if(count($exp) >= 2) {
+                $this->scr = $this->doEval($this->scr);
+            } else {
+                $this->scr = substr_replace($this->scr,"",-1);
+            }
         }
         $this->op = $val;
         $this->scr .= $this->op;
-        $this->updateScreen();
     }
 
     public function cpress() {
         $this->cepress();
-        $this->mem = "";
+        $this->mem = 0;
     }
 
     public function cepress() {
@@ -65,9 +74,8 @@ class CalculadoraMilan {
     }
 
     public function changeSign() {
-        if(!empty($this->op)) {
+        if(!empty($this->op) && empty($this->lastnum)) {
             $exp = explode($this->op, $this->scr);
-            print_r($exp);
             if(count($exp) == 3) {
                 $this->scr = $exp[0] . $this->op . ltrim($exp[2],"-");
             }
@@ -86,30 +94,96 @@ class CalculadoraMilan {
                 $this->scr = "-".$this->scr;
             }
         }
-        $this->updateScreen();
     }
 
     public function sqrt() {
-
+        if(!empty($this->op)) {
+            $exp = explode($this->op, $this->scr);
+            if(count($exp) == 3) {
+                //Si es un numero negativo y es una resta.
+                $this->scr = $exp[0] . $this->op . 'sqrt(-' . $exp[2] . ')';
+            }
+            if(!empty($exp[1])) {
+                //Operacion normal
+                $this->scr = $exp[0] . $this->op . 'sqrt(' . $exp[1] . ')';
+            }
+        } else {
+            $this->scr = 'sqrt(' . $this->scr . ')';
+        }
     }
 
     public function percentage() {
-
+        if(!empty($this->op)) {
+            $exp = explode($this->op, $this->scr);
+            if(count($exp)) {
+                if(!empty($exp[2])) {
+                    if($this->op == '+' || $this->op == '-') {
+                        $this->scr = $this->doEval($exp[0] . $this->op . '(' . $exp[0] . '/ 100) * ' . $exp[2]);
+                    } else {
+                        $this->scr = $this->doEval($exp[0] . $this->op . '(' . $exp[2] . '/ 100)');
+                    }
+                }
+            }
+            if(!empty($exp[1])) {
+                if($this->op == '+' || $this->op == '-') {
+                    $this->scr = $this->doEval($exp[0] . $this->op . '(' . $exp[0] . '/ 100) * ' . $exp[1]);
+                } else {
+                    $this->scr = $this->doEval($exp[0] . $this->op . '(' . $exp[1] . '/ 100)');
+                }
+            }
+        } else {
+            $this->scr = $this->doEval($this->scr . '/100');
+        }
     }
 
     public function mrc() {
-
+        if(!empty($this->op)) {
+            $exp = explode($this->op,$this->scr);
+            $this->scr = $exp[0] . $this->op . $this->mem;
+        } else {
+            $this->scr = $this->mem;
+        }
     }
 
     public function m_minus() {
-
+        $this->scr = $this->doEval($this->scr);
+        $this->mem -= $this->scr;
+        $this->op = "";
+        $this->lastnum = "";
     }
 
     public function m_plus() {
+        $this->scr = $this->doEval($this->scr);
+        $this->mem += $this->scr;
+        $this->op = "";
+        $this->lastnum = "";
+    }
 
+    protected function doEval($expression) { 
+        $val = "";
+        try {
+            $val=eval("return $expression ;"); 
+        }
+        catch (Error $e) {
+            $val = "Syntax Error";
+        }  
+        catch(Execepcion $e){
+            $val = "Syntax Error";
+        }
+        return $val;
     }
 
     public function igual() {
+        if(!empty($this->lastnum)) {
+            $this->scr .= $this->op .  $this->lastnum;
+        } else {
+            $exp = explode($this->op, $this->scr);
+            if(count($exp) == 3) {
+                $this->lastnum = $exp[2];
+            } else {
+                $this->lastnum = $exp[1];
+            }
+        }
         try {
             $res=eval("return $this->scr ;"); 
             $this->scr = $res;
@@ -120,12 +194,14 @@ class CalculadoraMilan {
         catch(Execepcion $e){
             $this->scr = "Syntax Error";
         }
-        $this->updateScreen();
     }
 
     public function punto() {
         $this->scr .= ".";
-        $this->updateScreen();
+    }
+
+    public function getScr() {
+        return $this->scr;
     }
 }
 
@@ -188,7 +264,7 @@ echo"
         <h1> Calculadora </h1>
         <form action='#' method='post' name='CalculadoraMilan'>
             <label for='pantalla'>Resultado</label>
-            <input type='text' name='pantalla' id='pantalla' readonly>
+            <input type='text' name='pantalla' id='pantalla' value='" . $_SESSION['calculadora']->getScr() . "' readonly>
             <input type='submit' value='C' name='C' > 
             <input type='submit' value='CE' name='CE' > 
             <input type='submit' value='+/-' name='+/-' > 
