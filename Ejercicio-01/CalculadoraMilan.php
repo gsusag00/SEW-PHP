@@ -253,7 +253,7 @@ echo"
     <!-- Definición de la ventana grafica -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <!-- Titulo de la página -->
-    <title>Ejercicio 3</title>
+    <title>Calculdora Milan</title>
     <!-- añadir el elemento link de enlace a laa hoja de estilo dentro del <head> del documento html -->
     <link rel='stylesheet' type='text/css' href='CalculadoraMilan.css'>
 </head>
