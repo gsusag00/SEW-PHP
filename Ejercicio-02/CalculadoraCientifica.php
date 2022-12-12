@@ -662,7 +662,7 @@ echo"
         <form action='#' method='post' name='CalculadoraCientifica'>
             <label for='pantalla'>Resultado</label>
             <input type='text' name='pantalla' id='pantalla' value='" . $calc->getScr() . "' readonly>
-            <input type='submit'";
+            <input type='submit' ";
             if($calc->getDeg() == 'DEG') {
                 echo "value='DEG'";
             } else if ($calc->getDeg() == 'RAD') {
@@ -670,7 +670,7 @@ echo"
             }  else {
                 echo "value='GRAD'";
             }
-            echo "name='DEG'> 
+            echo " name='DEG'> 
             <input type='submit' value='HYP' name='HYP'> 
             <input type='submit' value='F-E' name='F-E'>
 
