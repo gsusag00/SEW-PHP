@@ -70,7 +70,7 @@ input[type="text"] {
 /*
     Especifidad: 0 1 1
 */
-input[type="button"] {
+input[type="submit"] {
     margin: 0.07em;
     background-color: white;
     margin: 0.2em;
@@ -79,14 +79,14 @@ input[type="button"] {
 /*
     Especifidad: 0 2 1
 */
-input[type="button"][value="F-E"]{
+input[type="submit"][value="F-E"]{
     grid-column: 3 / span 3;
 }
 
 /*
     Especifidad: 0 2 1
 */
-input[type="button"][value="Enter"]{
+input[type="submit"][value="Enter"]{
     grid-column: 3 / span 3;
 }
 
