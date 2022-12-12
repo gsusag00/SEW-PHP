@@ -650,7 +650,7 @@ echo"
     <!-- Definición de la ventana grafica -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <!-- Titulo de la página -->
-    <title>Calculdora Milan</title>
+    <title>Calculdora Cientifica</title>
     <!-- añadir el elemento link de enlace a laa hoja de estilo dentro del <head> del documento html -->
     <link rel='stylesheet' type='text/css' href='CalculadoraCientifica.css'>
 </head>
