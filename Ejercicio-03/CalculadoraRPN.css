@@ -1,0 +1,101 @@
+/*
+    Especifidad: 0 0 1
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: gray;
+    color:white;
+}
+
+/*
+    Especifidad: 0 0 1
+*/
+section {
+    width: 50%;
+    height: 60%;
+}
+
+/*
+    Especifidad: 0 0 1
+*/
+form {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    background-color:black;
+    border: 0.15em solid blue;
+    padding: 1.5em;
+    border-radius: 1.5em;
+
+}
+
+/*
+    Especifidad: 0 0 1
+*/
+input {
+    border-radius: 1em;
+    font-size: 1em;
+}
+
+
+/*
+Especifidad: 0 0 1
+*/
+label{
+    grid-column: span 5;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+/*
+    Especifidad: 0 0 1
+*/
+textarea {
+    grid-column: span 5;
+    resize:vertical;
+    margin-bottom: 1em;
+    text-align: right;
+    height: 10em;
+}
+
+/*
+    Especifidad: 0 1 1
+*/
+input[type="text"] {
+    grid-column: span 5;
+    margin-bottom: 1em;
+}
+
+/*
+    Especifidad: 0 1 1
+*/
+input[type="button"] {
+    margin: 0.07em;
+    background-color: white;
+    margin: 0.2em;
+}
+
+/*
+    Especifidad: 0 2 1
+*/
+input[type="button"][value="F-E"]{
+    grid-column: 3 / span 3;
+}
+
+/*
+    Especifidad: 0 2 1
+*/
+input[type="button"][value="Enter"]{
+    grid-column: 3 / span 3;
+}
+
+
+@media (max-width: 600px) {
+    /*
+        Especifidad: 0 0 1
+    */
+    section {
+        width: 80%;
+    }
+}
