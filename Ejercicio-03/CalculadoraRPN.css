@@ -71,7 +71,6 @@ input[type="text"] {
     Especifidad: 0 1 1
 */
 input[type="submit"] {
-    margin: 0.07em;
     background-color: white;
     margin: 0.2em;
 }
