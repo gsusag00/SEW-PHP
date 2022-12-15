@@ -1,0 +1,49 @@
+/*
+    Especifidad 0 0 1
+*/
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+    Especifidad 0 0 1
+*/
+form {
+    border: 0.0625em solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/*
+    Especifidad 0 0 1
+*/
+label {
+    padding: 0.5em;
+}
+
+/*
+    Especifidad 0 0 1
+*/
+input, select {
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+}
+
+/*
+    Especifidad 0 0 1
+*/
+h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 1em;
+}
+
+/*
+    Especifidad 0 0 1
+*/
+p {
+    margin-left: 1em;
+}
