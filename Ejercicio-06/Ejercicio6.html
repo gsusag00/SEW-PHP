@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+
+<html lang='es'>
+
+<head>
+    <!-- Datos que describen el documento -->
+
+    <meta charset='UTF-8' />
+    <title>Ejercicio 6</title>
+    <link rel='stylesheet' type='text/css' href='Ejercicio6.css' />
+    
+
+    <meta name='author' content='Jesús Alonso García' />
+    <meta name='description' content='Ejercicio 6' />
+    <meta name ='viewport' content ='width=device-width, initial scale=1.0' />
+    
+</head>
+<body>
+
+    <h1>GESTION DE BASE DE DATOS</h1>
+    <nav>
+        <ul>
+            <li> <a accesskey='i' href='#crear' tabindex='1'> Generar base de datos </a></li>
+            <li> <a accesskey='i' href='#tabla' tabindex='1'> Crear tabla </a></li>
+            <li> <a accesskey='i' href='#insertar' tabindex='1'> Insertar datos </a></li>
+            <li> <a accesskey='i' href='#buscar' tabindex='1'> Buscar </a></li>
+            <li> <a accesskey='i' href='#modificar' tabindex='1'> Modificar datos </a></li>
+            <li> <a accesskey='i' href='#eliminar' tabindex='1'> Eliminar </a></li>
+            <li> <a accesskey='i' href='#generar' tabindex='1'> Generar informe </a></li>
+            <li> <a accesskey='i' href='#descargar' tabindex='1'> Generar CSV </a></li>
+            <li> <a accesskey='i' href='#importar' tabindex='1'> Importar CSV </a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Menu:</h2>
+        
+        <h3 id='crear'>Crear base de datos</h3>
+        <form action='#' method='post'>
+            <input type='submit' name='create' value='Crear base de datos'/>
+            </form>
+            
+            <h3 id='tabla'>Crear tabla</h3>
+            <form action='#' method='post'>
+            <input type='submit' name='createTable' value='Crear tabla'/>
+            </form>
+
+            <h3 id='insertar'>Insertar datos</h3>
+            <form action='#' method='post'>
+            <label for='id'>Identificador (DNI) :</label>
+            <input type='text' name='id' id='id'/>
+
+            <label for='nombre'>Nombre:</label>
+            <input type='text' name='nombre' id='nombre'/>
+            
+            <label for='apellidos'>Apellidos:</label>
+            <input type='text' name='apellidos' id='apellidos'/>
+            
+            <label for='email'>Email:</label>
+            <input type='text' name='email' id='email'/>
+            
+            <label for='telefono'>Teléfono:</label>
+            <input type='text' name='telefono' id='telefono'/>
+            
+            <label for='edad'>Edad:</label>
+            <input type='number' name='edad' id='edad' min='0'/>
+            
+            <label for='sexo'>Sexo:</label>
+            <input type='text' name='sexo' id='sexo'/>
+            
+            <label for='nivel'>Nivel informático (0-10):</label>
+            <input type='number' name='nivel' id='nivel' min='0' max='10'/>
+            
+            <label for='tiempo'>Tiempo empleado (segundos):</label>
+            <input type='number' name='tiempo' id='tiempo'/>
+            
+            <label for='select'>Realización de la tarea:</label>
+            <select id='select' name='select'>
+            <option value='si'>SI</option>
+            <option value='no'>NO</option>
+            </select>
+            
+            <label for='comentarios'>Comentarios:</label>
+            <input type='text' name='comentarios' id='comentarios'/>
+            
+            <label for='propuestas'>Propuestas de mejora:</label>
+            <input type='text' name='propuestas' id='propuestas'/>
+            
+            <label for='valoracion'>Valoración de la app (0-10):</label>
+            <input type='number' name='valoracion' id='valoracion' min='0' max='10'/>
+            
+            <input type='submit' name='insertarDatos' value='Insertar datos en la tabla'/>
+            </form>
+            
+            <h3 id='buscar'>Buscar datos</h3>
+            <form action='#' method='post'>
+            <label for='idToMod'>Identifcador de la persona a buscar:</label>
+            <input type='text' name='id' id='idToMod'/>
+            <input type='submit' name='buscar' value='Buscar'/>
+            </form>
+            
+            <h3 id='modificar'>Modificar datos</h3>
+            <form action='#' method='post'>
+            <label for='idMod'>Identificador (DNI) :</label>
+            <input type='text' name='id' id='idMod'/>
+            
+            <label for='nombreMod'>Nombre:</label>
+            <input type='text' name='nombre' id='nombreMod'/>
+            
+            <label for='apellidosMod'>Apellidos:</label>
+            <input type='text' name='apellidos' id='apellidosMod'/>
+            
+            <label for='emailMod'>Email:</label>
+            <input type='text' name='email' id='emailMod'/>
+            
+            <label for='telefonoMod'>Teléfono:</label>
+            <input type='text' name='telefono' id='telefonoMod'/>
+            
+            <label for='edadMod'>Edad:</label>
+            <input type='number' name='edad' id='edadMod' min='0'/>
+            
+            <label for='sexoMod'>Sexo:</label>
+            <input type='text' name='sexo' id='sexoMod'/>
+            
+            <label for='nivelMod'>Nivel informático (0-10):</label>
+            <input type='number' name='nivel' id='nivelMod' min='0' max='10'/>
+            
+            <label for='tiempoMod'>Tiempo empleado (segundos):</label>
+            <input type='number' name='tiempo' id='tiempoMod'/>
+            
+            <label for='selectMod'>Realización de la tarea:</label>
+            <select id='selectMod' name='select'>
+                <option value='si'>SI</option>
+                <option value='no'>NO</option>
+                </select>
+                
+                <label for='comentariosMod'>Comentarios:</label>
+                <input type='text' name='comentarios' id='comentariosMod'/>
+                
+                <label for='propuestasMod'>Propuestas de mejora:</label>
+                <input type='text' name='propuestas' id='propuestasMod'/>
+
+                <label for='valoracionMod'>Valoración de la app (0-10):</label>
+                <input type='number' name='valoracion' id='valoracionMod' min='0' max='10'/>
+                
+                <input type='submit' name='modificarDatos' value='Modificar datos'/>
+        </form>
+        
+        <h3 id='eliminar'>Eliminar datos</h3>
+        <form action='#' method='post'>
+            <label for='idToSearch'>Identifcador de la persona a eliminar:</label>
+            <input type='text' name='id' id='idToSearch'/>
+            <input type='submit' name='eliminar' value='Eliminar'/>
+        </form>
+
+        <h3 id='generar'>Generar informe</h3>
+        <form action='#' method='post'>
+            <input type='submit' name='informe' value='Generar informe'/>
+        </form>
+
+        <h3 id='descargar'>Descargar CSV</h3>
+        <form action='#' method='post'>
+            <input type='submit' name='descargar' value='Descargar CSV'/>
+        </form>
+
+        <h3 id='importar'>Importar CSV</h3>
+        <form action='#' method='post' enctype='multipart/form-data'>
+            <label for='archivo'>Archivo a subir</label>
+            <input type='file' id='archivo' name='file' accept='.csv,application/vnd.ms-excel'/>
+            <input type='submit' name='importar' value='Importar CSV'/>
+        </form>
+    </section><p>Ha surgido un error: Duplicate entry '915467382' for key 'PRIMARY'</p>
+</body>
+
+</html>

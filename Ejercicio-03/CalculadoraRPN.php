@@ -172,7 +172,7 @@ class CalculadoraMilan {
         catch (Error $e) {
             $val = "Syntax Error";
         }  
-        catch(Execepcion $e){
+        catch(Exception $e){
             $val = "Syntax Error";
         }
         return $val;
@@ -198,7 +198,7 @@ class CalculadoraMilan {
         catch (Error $e) {
             $this->scr = "Syntax Error";
         }  
-        catch(Execepcion $e){
+        catch(Exception $e){
             $this->scr = "Syntax Error";
         }
     }
@@ -249,7 +249,7 @@ class CalculadoraCientifica extends CalculadoraMilan {
         catch (Error $e) {
             $this->scr = "Syntax Error";
         }  
-        catch(Execepcion $e){
+        catch(Exception $e){
             $this->scr = "Syntax Error";
         }
     }
@@ -414,6 +414,7 @@ class CalculadoraCientifica extends CalculadoraMilan {
         if($this->op) {
             $alt = substr($this->scr,strlen($this->left));
             $exp = explode($this->op,$alt);
+            $right = $exp[1] + 0;
             if(!$this->second) {
                 $right = $this->degreeToRad($right);
             }
@@ -447,6 +448,7 @@ class CalculadoraCientifica extends CalculadoraMilan {
         if($this->op) {
             $alt = substr($this->scr,strlen($this->left));
             $exp = explode($this->op,$alt);
+            $right = $exp[1] + 0;
             if(!$this->second) {
                 $right = $this->degreeToRad($right);
             }
@@ -480,6 +482,7 @@ class CalculadoraCientifica extends CalculadoraMilan {
         if($this->op) {
             $alt = substr($this->scr,strlen($this->left));
             $exp = explode($this->op,$alt);
+            $right = $exp[1] + 0;
             if(!$this->second) {
                 $right = $this->degreeToRad($right);
             }
@@ -876,15 +879,15 @@ echo"
 <html lang='es'>
 
 <head>
-    <meta charset='UTF-8'>
+    <meta charset='UTF-8'/>
     <!-- Metadatos de los documentos HTML5 -->
-    <meta name='author' content='Jesús Alonso Gárcia'>
+    <meta name='author' content='Jesús Alonso Gárcia'/>
     <!-- Definición de la ventana grafica -->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <!-- Titulo de la página -->
     <title>Calculdora RPN</title>
     <!-- añadir el elemento link de enlace a laa hoja de estilo dentro del <head> del documento html -->
-    <link rel='stylesheet' type='text/css' href='CalculadoraRPN.css'>
+    <link rel='stylesheet' type='text/css' href='CalculadoraRPN.css'/>
 </head>
 
 <body>
@@ -897,7 +900,7 @@ echo"
             $calc->getTa() .
             "</textarea>
             <label for='pantalla'>Resultado</label>
-            <input type='text' name='pantalla' id='pantalla' value='" . $calc->getScr() . "' readonly>
+            <input type='text' name='pantalla' id='pantalla' value='" . $calc->getScr() . "' readonly/>
             <input type='submit' ";
             if($calc->getDeg() == 'DEG') {
                 echo "value='DEG'";
@@ -906,110 +909,110 @@ echo"
             }  else {
                 echo "value='GRAD'";
             }
-            echo " name='DEG'> 
-            <input type='submit' value='HYP' name='HYP'> 
-            <input type='submit' value='F-E' name='F-E'>
+            echo " name='DEG'/> 
+            <input type='submit' value='HYP' name='HYP'/> 
+            <input type='submit' value='F-E' name='F-E'/>
 
             
-            <input type='submit' value='MC' name='MC'> 
-            <input type='submit' value='MR' name='MR'> 
-            <input type='submit' value='M+' name='M+'> 
-            <input type='submit' value='M-' name='M-'>
-            <input type='submit' value='MS' name='MS'>";
+            <input type='submit' value='MC' name='MC'/> 
+            <input type='submit' value='MR' name='MR'/> 
+            <input type='submit' value='M+' name='M+'/> 
+            <input type='submit' value='M-' name='M-'/>
+            <input type='submit' value='MS' name='MS'/>";
             
             if($calc->getSecond()) {
-                echo "<input type='submit' value='2nd' name='2nd' > 
-                <input type='submit' value='e' name='π' > 
-                <input type='submit' value='C' name='C' > 
-                <input type='submit' value='CE' name='CE' > 
-                <input type='submit' value='Del' name='Del' >
+                echo "<input type='submit' value='2nd' name='2nd'/> 
+                <input type='submit' value='e' name='π'/> 
+                <input type='submit' value='C' name='C'/> 
+                <input type='submit' value='CE' name='CE'/> 
+                <input type='submit' value='Del' name='Del'/>
 
-                <input type='submit' value='x^3' name='x^2'>";
+                <input type='submit' value='x^3' name='x^2'/>";
                 if($calc->getHyp()) {
-                    echo "<input type='submit' value='asinh' name='sin'> 
-                    <input type='submit' value='acosh' name='cos'> 
-                    <input type='submit' value='atanh' name='tan'>"; 
+                    echo "<input type='submit' value='asinh' name='sin'/> 
+                    <input type='submit' value='acosh' name='cos'/> 
+                    <input type='submit' value='atanh' name='tan'/>"; 
                 } else {
-                    echo "<input type='submit' value='asin' name='sin'> 
-                    <input type='submit' value='acos' name='cos'> 
-                    <input type='submit' value='atan' name='tan'>";
+                    echo "<input type='submit' value='asin' name='sin'/> 
+                    <input type='submit' value='acos' name='cos'/> 
+                    <input type='submit' value='atan' name='tan'/>";
                 }
 
-                echo "<input type='submit' value='mod' name='mod'>
+                echo "<input type='submit' value='mod' name='mod'/>
 
-                <input type='submit' value='3√' name='√' >
-                <input type='submit' value='exp' name='exp'>
-                <input type='submit' value='Enter' name='Enter'>  
+                <input type='submit' value='3√' name='√'/>
+                <input type='submit' value='exp' name='exp'/>
+                <input type='submit' value='Enter' name='Enter'/>  
                 
-                <input type='submit' value='y√x' name='x^y'> 
-                <input type='submit' value='7' name='7'> 
-                <input type='submit' value='8' name='8'> 
-                <input type='submit' value='9' name='9'> 
-                <input type='submit' value='/' name='/'> 
+                <input type='submit' value='y√x' name='x^y'/> 
+                <input type='submit' value='7' name='7'/> 
+                <input type='submit' value='8' name='8'/> 
+                <input type='submit' value='9' name='9'/> 
+                <input type='submit' value='/' name='/'/> 
                 
-                <input type='submit' value='2^x' name='10^x'> 
-                <input type='submit' value='4' name='4'> 
-                <input type='submit' value='5' name='5'> 
-                <input type='submit' value='6' name='6'> 
-                <input type='submit' value='*' name='*'> 
+                <input type='submit' value='2^x' name='10^x'/> 
+                <input type='submit' value='4' name='4'/> 
+                <input type='submit' value='5' name='5'/> 
+                <input type='submit' value='6' name='6'/> 
+                <input type='submit' value='*' name='*'/> 
                 
-                <input type='submit' value='ln' name='log'> 
-                <input type='submit' value='1' name='1'> 
-                <input type='submit' value='2' name='2'> 
-                <input type='submit' value='3' name='3'> 
-                <input type='submit' value='-' name='-'> 
+                <input type='submit' value='ln' name='log'/> 
+                <input type='submit' value='1' name='1'/> 
+                <input type='submit' value='2' name='2'/> 
+                <input type='submit' value='3' name='3'/> 
+                <input type='submit' value='-' name='-'/> 
                 
-                <input type='submit' value='n!' name='n!' > 
-                <input type='submit' value='+/-' name='+/-' > 
-                <input type='submit' value='0' name='0'> 
-                <input type='submit' value='.' name='punto'> 
-                <input type='submit' value='+' name='+'>";
+                <input type='submit' value='n!' name='n!'/> 
+                <input type='submit' value='+/-' name='+/-'/> 
+                <input type='submit' value='0' name='0'/> 
+                <input type='submit' value='.' name='punto'/> 
+                <input type='submit' value='+' name='+'/>";
             } else {
-                echo "<input type='submit' value='2nd' name='2nd' > 
-                <input type='submit' value='π' name='π' > 
-                <input type='submit' value='C' name='C' > 
-                <input type='submit' value='CE' name='CE' > 
-                <input type='submit' value='Del' name='Del' >
+                echo "<input type='submit' value='2nd' name='2nd'/> 
+                <input type='submit' value='π' name='π'/> 
+                <input type='submit' value='C' name='C'/> 
+                <input type='submit' value='CE' name='CE'/> 
+                <input type='submit' value='Del' name='Del'/>
 
-                <input type='submit' value='x^2' name='x^2'> ";
+                <input type='submit' value='x^2' name='x^2'/> ";
                 if($calc->getHyp()) {
-                    echo "<input type='submit' value='sinh' name='sin'> 
-                    <input type='submit' value='cosh' name='cos'> 
-                    <input type='submit' value='tanh' name='tan'>"; 
+                    echo "<input type='submit' value='sinh' name='sin'/> 
+                    <input type='submit' value='cosh' name='cos'/> 
+                    <input type='submit' value='tanh' name='tan'/>"; 
                 } else {
-                    echo "<input type='submit' value='sin' name='sin'> 
-                    <input type='submit' value='cos' name='cos'> 
-                    <input type='submit' value='tan' name='tan'>";
+                    echo "<input type='submit' value='sin' name='sin'/> 
+                    <input type='submit' value='cos' name='cos'/> 
+                    <input type='submit' value='tan' name='tan'/>";
                 }
-                echo "<input type='submit' value='mod' name='mod'>
+                echo "<input type='submit' value='mod' name='mod'/>
 
-                <input type='submit' value='√' name='√' >
-                <input type='submit' value='exp' name='exp'>
-                <input type='submit' value='Enter' name='Enter'> 
+                <input type='submit' value='√' name='√'/>
+                <input type='submit' value='exp' name='exp'/>
+                <input type='submit' value='Enter' name='Enter'/> 
                 
-                <input type='submit' value='x^y' name='x^y'> 
-                <input type='submit' value='7' name='7'> 
-                <input type='submit' value='8' name='8'> 
-                <input type='submit' value='9' name='9'> 
-                <input type='submit' value='/' name='/'> 
+                <input type='submit' value='x^y' name='x^y'/> 
+                <input type='submit' value='7' name='7'/> 
+                <input type='submit' value='8' name='8'/> 
+                <input type='submit' value='9' name='9'/> 
+                <input type='submit' value='/' name='/'/> 
                 
-                <input type='submit' value='10^x' name='10^x'> 
-                <input type='submit' value='4' name='4'> 
-                <input type='submit' value='5' name='5'> 
-                <input type='submit' value='6' name='6'> 
-                <input type='submit' value='*' name='*'> 
+                <input type='submit' value='10^x' name='10^x'/> 
+                <input type='submit' value='4' name='4'/> 
+                <input type='submit' value='5' name='5'/> 
+                <input type='submit' value='6' name='6'/> 
+                <input type='submit' value='*' name='*'/> 
                 
-                <input type='submit' value='log' name='log'> 
-                <input type='submit' value='1' name='1'> 
-                <input type='submit' value='2' name='2'> 
-                <input type='submit' value='3' name='3'> 
-                <input type='submit' value='-' name='-'> 
+                <input type='submit' value='log' name='log'/> 
+                <input type='submit' value='1' name='1'/> 
+                <input type='submit' value='2' name='2'/> 
+                <input type='submit' value='3' name='3'/> 
+                <input type='submit' value='-' name='-'/> 
                 
-                <input type='submit' value='n!' name='n!' > 
-                <input type='submit' value='+/-' name='+/-' > 
-                <input type='submit' value='0' name='0'> 
-                <input type='submit' value='.' name='punto'> 
-                <input type='submit' value='+' name='+'>" ;
+                <input type='submit' value='n!' name='n!'/> 
+                <input type='submit' value='+/-' name='+/-'/> 
+                <input type='submit' value='0' name='0'/> 
+                <input type='submit' value='.' name='punto'/> 
+                <input type='submit' value='+' name='+'/>" ;
             }
 
         echo "</form>

@@ -172,7 +172,7 @@ class CalculadoraMilan {
         catch (Error $e) {
             $val = "Syntax Error";
         }  
-        catch(Execepcion $e){
+        catch(Exception $e){
             $val = "Syntax Error";
         }
         return $val;
@@ -198,7 +198,7 @@ class CalculadoraMilan {
         catch (Error $e) {
             $this->scr = "Syntax Error";
         }  
-        catch(Execepcion $e){
+        catch(Exception $e){
             $this->scr = "Syntax Error";
         }
     }
@@ -251,18 +251,18 @@ if(count($_POST) > 0) {
 echo"
 <!DOCTYPE html>
 
-<html lang='es'>
+<html lang='es'/>
 
 <head>
-    <meta charset='UTF-8'>
+    <meta charset='UTF-8'/>
     <!-- Metadatos de los documentos HTML5 -->
-    <meta name='author' content='Jesús Alonso Gárcia'>
+    <meta name='author' content='Jesús Alonso Gárcia'/>
     <!-- Definición de la ventana grafica -->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <!-- Titulo de la página -->
     <title>Calculdora Milan</title>
     <!-- añadir el elemento link de enlace a laa hoja de estilo dentro del <head> del documento html -->
-    <link rel='stylesheet' type='text/css' href='CalculadoraMilan.css'>
+    <link rel='stylesheet' type='text/css' href='CalculadoraMilan.css'/>
 </head>
 
 <body>
@@ -271,35 +271,35 @@ echo"
         <h1> Calculadora </h1>
         <form action='#' method='post' name='CalculadoraMilan'>
             <label for='pantalla'>Resultado</label>
-            <input type='text' name='pantalla' id='pantalla' value='" . $_SESSION['calculadora']->getScr() . "' readonly>
-            <input type='submit' value='C' name='C' > 
-            <input type='submit' value='CE' name='CE' > 
-            <input type='submit' value='+/-' name='+/-' > 
-            <input type='submit' value='√' name='√' > 
-            <input type='submit' value='%' name='%'> 
+            <input type='text' name='pantalla' id='pantalla' value='" . $_SESSION['calculadora']->getScr() . "' readonly/>
+            <input type='submit' value='C' name='C' /> 
+            <input type='submit' value='CE' name='CE' /> 
+            <input type='submit' value='+/-' name='+/-' /> 
+            <input type='submit' value='√' name='√' /> 
+            <input type='submit' value='%' name='%'/> 
 
-            <input type='submit' value='7' name='7'> 
-            <input type='submit' value='8' name='8'> 
-            <input type='submit' value='9' name='9'> 
-            <input type='submit' value='*' name='*'> 
-            <input type='submit' value='/' name='/'> 
+            <input type='submit' value='7' name='7'/> 
+            <input type='submit' value='8' name='8'/> 
+            <input type='submit' value='9' name='9'/> 
+            <input type='submit' value='*' name='*'/> 
+            <input type='submit' value='/' name='/'/> 
             
-            <input type='submit' value='4' name='4'> 
-            <input type='submit' value='5' name='5'> 
-            <input type='submit' value='6' name='6'> 
-            <input type='submit' value='-' name='-'> 
-            <input type='submit' value='MRC' name='MRC'> 
+            <input type='submit' value='4' name='4'/> 
+            <input type='submit' value='5' name='5'/> 
+            <input type='submit' value='6' name='6'/> 
+            <input type='submit' value='-' name='-'/> 
+            <input type='submit' value='MRC' name='MRC'/> 
             
-            <input type='submit' value='1' name='1'> 
-            <input type='submit' value='2' name='2'> 
-            <input type='submit' value='3' name='3'> 
-            <input type='submit' value='+' name='+'> 
-            <input type='submit' value='M-' name='M-'> 
+            <input type='submit' value='1' name='1'/> 
+            <input type='submit' value='2' name='2'/> 
+            <input type='submit' value='3' name='3'/> 
+            <input type='submit' value='+' name='+'/> 
+            <input type='submit' value='M-' name='M-'/> 
             
-            <input type='submit' value='0' name='0'> 
-            <input type='submit' value='.' name='punto'> 
-            <input type='submit' value='=' name='='> 
-            <input type='submit' value='M+' name='M+'> 
+            <input type='submit' value='0' name='0'/> 
+            <input type='submit' value='.' name='punto'/> 
+            <input type='submit' value='=' name='='/> 
+            <input type='submit' value='M+' name='M+'/> 
         </form>
     </section>
 </body>

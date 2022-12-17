@@ -87,13 +87,13 @@ echo "
 <head>
     <meta charset='UTF-8'>
     <!-- Metadatos de los documentos HTML5 -->
-    <meta name='author' content='Jesús Alonso Gárcia'>
+    <meta name='author' content='Jesús Alonso Gárcia'/>
     <!-- Definición de la ventana grafica -->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <!-- Titulo de la página -->
     <title>Ejercicio 4</title>
     <!-- añadir el elemento link de enlace a la hoja de estilo dentro del <head> del documento html -->
-    <link rel='stylesheet' type='text/css' href='Ejercicio4.css'>
+    <link rel='stylesheet' type='text/css' href='Ejercicio4.css'/>
 </head>
 
 <body>
@@ -110,7 +110,7 @@ echo "
                 <option value='USD'> Dolar </option>
                 <option value='GBP'> Libra </option>
             </select>
-            <input type='submit' value='Mirar el precio del cobre' name='data'>
+            <input type='submit' value='Mirar el precio del cobre' name='data'/>
         </form>";
     echo $_SESSION['cop']->printRes();
     echo "</section>
