@@ -772,7 +772,7 @@ class Pila {
         array_push($this->pila,$elemento);
     }
 
-    public function pop() {
+    public function pop():mixed {
         return array_pop($this->pila);
     }
 
@@ -780,7 +780,7 @@ class Pila {
         return count($this->pila);
     }
 
-    public function peek() {
+    public function peek(): mixed {
         return current($this->pila);
     }
 
