@@ -251,7 +251,7 @@ if(count($_POST) > 0) {
 echo"
 <!DOCTYPE html>
 
-<html lang='es'/>
+<html lang='es'>
 
 <head>
     <meta charset='UTF-8'/>

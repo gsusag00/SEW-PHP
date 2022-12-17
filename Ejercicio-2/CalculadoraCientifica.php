@@ -644,7 +644,7 @@ $calc = $_SESSION['calculadora'];
 echo"
 <!DOCTYPE html>
 
-<html lang='es'/>
+<html lang='es'>
 
 <head>
     <meta charset='UTF-8'/>
