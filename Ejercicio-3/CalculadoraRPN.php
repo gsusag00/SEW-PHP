@@ -780,10 +780,6 @@ class Pila {
         return count($this->pila);
     }
 
-    public function peek(): mixed {
-        return current($this->pila);
-    }
-
     public function clear() {
         $this->pila = array();
     }

@@ -24,10 +24,16 @@ form {
     align-items: flex-start;
 }
 
+/*
+    Especifidad 0 0 1
+*/
 label {
     margin-left: 0.5em;
 }
 
+/*
+    Especifidad 0 0 1
+*/
 input, select {
     margin-left:1.5em;
 }

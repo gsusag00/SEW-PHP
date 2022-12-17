@@ -1,5 +1,4 @@
 <?php
-use FTP\Connection;
 
 session_start();
 
@@ -527,15 +526,15 @@ echo "<!DOCTYPE HTML>
     <h1>GESTION DE BASE DE DATOS</h1>
     <nav>
         <ul>
-            <li> <a accesskey='i' href='#crear' tabindex='1'> Generar base de datos </a></li>
-            <li> <a accesskey='i' href='#tabla' tabindex='1'> Crear tabla </a></li>
-            <li> <a accesskey='i' href='#insertar' tabindex='1'> Insertar datos </a></li>
-            <li> <a accesskey='i' href='#buscar' tabindex='1'> Buscar </a></li>
-            <li> <a accesskey='i' href='#modificar' tabindex='1'> Modificar datos </a></li>
-            <li> <a accesskey='i' href='#eliminar' tabindex='1'> Eliminar </a></li>
+            <li> <a accesskey='i' href='#crear' tabindex='1'> Crear base de datos </a></li>
+            <li> <a accesskey='i' href='#tabla' tabindex='1'> Crear una tabla </a></li>
+            <li> <a accesskey='i' href='#insertar' tabindex='1'> Insertar datos en una tabla</a></li>
+            <li> <a accesskey='i' href='#buscar' tabindex='1'> Buscar en una tabla</a></li>
+            <li> <a accesskey='i' href='#modificar' tabindex='1'> Modificar datos en una tabla</a></li>
+            <li> <a accesskey='i' href='#eliminar' tabindex='1'> Eliminar datos de una tabla</a></li>
             <li> <a accesskey='i' href='#generar' tabindex='1'> Generar informe </a></li>
-            <li> <a accesskey='i' href='#descargar' tabindex='1'> Generar CSV </a></li>
-            <li> <a accesskey='i' href='#importar' tabindex='1'> Importar CSV </a></li>
+            <li> <a accesskey='i' href='#importar' tabindex='1'> Cargar datos desde un archivo CSV en una tabla de la base de datos </a></li>
+            <li> <a accesskey='i' href='#descargar' tabindex='1'> Exportar datos a un archivo en formato CSV los datos de una tabla de la base de datos </a></li>
         </ul>
     </nav>
     <section>
