@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+
+<html lang='es'>
+
+<head>
+    <!-- Datos que describen el documento -->
+
+    <meta charset='UTF-8' />
+    <title>Ejercicio 7</title>
+    <link rel='stylesheet' type='text/css' href='Ejercicio7.css' />
+    
+
+    <meta name='author' content='Jesús Alonso García' />
+    <meta name='description' content='Ejercicio 7' />
+    <meta name ='viewport' content ='width=device-width, initial scale=1.0' />
+    
+</head>
+<body>
+
+    <h1>Mundial Manager</h1>
+    <nav>
+        <ul>
+            <li> <a accesskey='m' href='#AñadirMundial' tabindex='1'> Añadir Mundial </a></li>
+            <li> <a accesskey='c' href='#AñadirCircuito' tabindex='2'> Añadir circuito </a></li>
+            <li> <a accesskey='e' href='#AñadirEscuderia' tabindex='3'> Añadir escuderia </a></li>
+            <li> <a accesskey='b' href='#buscar' tabindex='4'> Busqueda </a></li>
+            <li> <a accesskey='s' href='#escuderia2mundial' tabindex='5'> Inscribir escuderia </a></li>
+            <li> <a accesskey='i' href='#circuito2mundial' tabindex='6'> Inscribir circuito </a></li>
+            <li> <a accesskey='l' href='#eliminar' tabindex='7'> Eliminar elementos </a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Menu:</h2>
+
+            <h3 id='AñadirMundial'>Añadir mundial</h3>
+                <form action='#' method='post'>
+                <label for='nombre'>Nombre del mundial :</label>
+                <input type='text' name='nombre' id='nombre'/>
+
+                <label for='dueño'>Dueño:</label>
+                <input type='text' name='dueño' id='dueño'/>
+                <input type='submit' name='addMundial' value='Añadir Mundial'/>
+            </form>
+
+            <h3 id='AñadirCircuito'>Añadir circuito</h3>
+            <form action='#' method='post'>
+                <label for='circuito'>Nombre del circuito :</label>
+                <input type='text' name='circuito' id='circuito'/>
+
+                <label for='lugar'>Localización:</label>
+                <input type='text' name='lugar' id='lugar'/>
+                
+                <label for='longitud'>Longitud:</label>
+                <input type='number' min='0' name='longitud' id='longitud'/>
+                <input type='submit' name='addCircuito' value='Añadir Circuito'/>
+            </form>
+
+            <h3 id='AñadirEscuderia'>Añadir Escuderia</h3>
+            <form action='#' method='post'>
+                <label for='escuderia'>Nombre de la escuderia:</label>
+                <input type='text' name='escuderia' id='escuderia'/>
+
+                <label for='origen'>Origen:</label>
+                <input type='text' name='origen' id='origen'/>
+                <input type='submit' name='addEscuderia' value='Añadir Escuderia'/>
+            </form>
+            
+            <h3 id='buscar'>Buscar datos por nombre</h3>
+            <form action='#' method='post'>
+            <label for='idToMod'>Nombre :</label>
+            <input type='text' name='id' id='idToMod'/>
+            <label for='entity'>¿Sobre que quieres buscar?: </label>
+            <select id='entity' name='entity'>
+                <option value='escuderia'> Escuderia </option>
+                <option value='mundial'> Mundial </option>
+                <option value='carrera'> Circuito </option>
+            </select>
+            <input type='submit' name='buscar' value='Buscar'/>
+            </form>
+            
+            <h3 id='escuderia2mundial'>Añade una escuderia a un mundial</h3>
+            <form action='#' method='post'>
+                <label for='idNomMund'>Nombre del mundial :</label>
+                <input type='text' name='idNomMund' id='idNomMund'/>
+
+                <label for='nomEsc'>Nombre de la escuderia:</label>
+                <input type='text' name='nomEsc' id='nomEsc'/>
+                <input type='submit' name='assignEscuderia' value='Añadir Escuderia al mundial'/>
+            </form>
+
+            <h3 id='circuito2mundial'>Añade un circuito a un mundial</h3>
+            <form action='#' method='post'>
+                <label for='id'>Nombre Mundial :</label>
+                <input type='text' name='idNomMundial' id='id'/>
+
+                <label for='nomCir'>Nombre circuito:</label>
+                <input type='text' name='nomCir' id='nomCir'/>
+                
+                <input type='submit' name='assignCircuito' value='Añadir Circuito al mundial'/>
+            </form>
+
+            <h3 id='eliminar'>Eliminar datos por nombre</h3>
+            <form action='#' method='post'>
+                <label for='nameToDelete'>Nombre de lo que quieres eliminar:</label>
+                <input type='text' name='todelete' id='nameToDelete'/>
+                <label for='entityDel'>¿Sobre que quieres buscar?: </label>
+                <select id='entityDel' name='entityDel'>
+                <option value='escuderia'> Escuderia </option>
+                <option value='mundial'> Mundial </option>
+                <option value='carrera'> Circuito </option>
+            </select>
+            <input type='submit' name='eliminar' value='Eliminar'/>
+        </form>
+        </section><p>Se ha eliminado carrera : Circuito de interlagos correctamente</p>
+    </body>
+
+</html>
