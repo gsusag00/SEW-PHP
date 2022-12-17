@@ -9,15 +9,6 @@ section {
     Especifidad 0 0 1
 */
 form {
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/*
-    Especifidad 0 0 1
-*/
-form {
     border: 0.0625em solid black;
     display: flex;
     flex-direction: column;
