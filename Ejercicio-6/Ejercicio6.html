@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<html lang='es'>
+<html lang='es'/>
 
 <head>
     <!-- Datos que describen el documento -->
@@ -20,15 +20,15 @@
     <h1>GESTION DE BASE DE DATOS</h1>
     <nav>
         <ul>
-            <li> <a accesskey='i' href='#crear' tabindex='1'> Generar base de datos </a></li>
-            <li> <a accesskey='i' href='#tabla' tabindex='1'> Crear tabla </a></li>
-            <li> <a accesskey='i' href='#insertar' tabindex='1'> Insertar datos </a></li>
-            <li> <a accesskey='i' href='#buscar' tabindex='1'> Buscar </a></li>
-            <li> <a accesskey='i' href='#modificar' tabindex='1'> Modificar datos </a></li>
-            <li> <a accesskey='i' href='#eliminar' tabindex='1'> Eliminar </a></li>
+            <li> <a accesskey='i' href='#crear' tabindex='1'> Crear base de datos </a></li>
+            <li> <a accesskey='i' href='#tabla' tabindex='1'> Crear una tabla </a></li>
+            <li> <a accesskey='i' href='#insertar' tabindex='1'> Insertar datos en una tabla</a></li>
+            <li> <a accesskey='i' href='#buscar' tabindex='1'> Buscar en una tabla</a></li>
+            <li> <a accesskey='i' href='#modificar' tabindex='1'> Modificar datos en una tabla</a></li>
+            <li> <a accesskey='i' href='#eliminar' tabindex='1'> Eliminar datos de una tabla</a></li>
             <li> <a accesskey='i' href='#generar' tabindex='1'> Generar informe </a></li>
-            <li> <a accesskey='i' href='#descargar' tabindex='1'> Generar CSV </a></li>
-            <li> <a accesskey='i' href='#importar' tabindex='1'> Importar CSV </a></li>
+            <li> <a accesskey='i' href='#importar' tabindex='1'> Cargar datos desde un archivo CSV en una tabla de la base de datos </a></li>
+            <li> <a accesskey='i' href='#descargar' tabindex='1'> Exportar datos a un archivo en formato CSV los datos de una tabla de la base de datos </a></li>
         </ul>
     </nav>
     <section>
@@ -168,7 +168,16 @@
             <input type='file' id='archivo' name='file' accept='.csv,application/vnd.ms-excel'/>
             <input type='submit' name='importar' value='Importar CSV'/>
         </form>
-    </section><p>Ha surgido un error: Duplicate entry '915467382' for key 'PRIMARY'</p>
+    </section><h2>Resultados del informe</h2>
+            <ul>
+                <li>Edad media: 23.8 años</li>
+                <li>Porcentaje hombres: 60%</li>
+                <li>Porcentaje mujeres: 40%</li>
+                <li>Nivel medio: 6</li>
+                <li>Tiempo medio: 198 segundos</li>
+                <li>Usuarios que han realizado la tarea correctamente: 80%</li>
+                <li>Valoración media de la tarea: 7.2 puntos sobre 10</li>
+            </ul>
 </body>
 
 </html>

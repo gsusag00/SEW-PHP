@@ -431,7 +431,7 @@ if (count($_POST) > 0) {
 
 echo "<!DOCTYPE HTML>
 
-<html lang='es'>
+<html lang='es'/>
 
 <head>
     <!-- Datos que describen el documento -->
