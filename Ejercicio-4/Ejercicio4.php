@@ -82,10 +82,10 @@ if(count($_POST) > 0) {
 echo "
 <!DOCTYPE html>
 
-<html lang='es'>
+<html lang='es'/>
 
 <head>
-    <meta charset='UTF-8'>
+    <meta charset='UTF-8'/>
     <!-- Metadatos de los documentos HTML5 -->
     <meta name='author' content='Jesús Alonso Gárcia'/>
     <!-- Definición de la ventana grafica -->
